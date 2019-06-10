@@ -1,6 +1,6 @@
 import React from "react";
 
-import { Logo, SearchInput } from "../../ui-components";
+import { Logo, SearchForm } from "../../ui-components";
 
 export default function Search(props) {
     
@@ -8,7 +8,7 @@ export default function Search(props) {
     <div>
       <center>
         <Logo />
-        <SearchInput />
+        <SearchForm />
         {/* <div>
           <Button>Tìm kiếm</Button>
           <Button>Thêm mới</Button>
