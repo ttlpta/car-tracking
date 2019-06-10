@@ -11,8 +11,13 @@ const SearchInputContainer = styled.div`
     z-index: 3;
     height: 44px;
     margin: 0 auto;
-    width: 100%;
     padding: 0px 15px;
+    &.searching {
+      border-bottom-left-radius: 0;
+      border-bottom-right-radius: 0;
+      border-color: rgba(223,225,229,0);
+      box-shadow: 0 1px 6px 0 rgba(32,33,36,0.28);
+    }
     &:hover, &.focus {
       box-shadow: 0 1px 6px 0 rgba(32,33,36,0.28);
       border-color: rgba(223,225,229,0);

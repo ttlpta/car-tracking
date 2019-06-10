@@ -4,13 +4,21 @@ import SearchInputContainer from "./SearchInputStyle";
 export default function SearchInput(props){
 
   const [ focus, focusOn ] = useState(false);
+  const [ searching, search ] = useState(false);
+
+  function onSearch(e){
+    const txt = e.target.value;
+    search(!!txt.length);
+    props.onChange(!!txt.length);
+  }
 
   return(
     <SearchInputContainer>
-      <div className={`searchWraper ${focus ? 'focus' : ''}`}>
+      <div className={`searchWraper ${searching ? 'searching' : ''} ${focus ? 'focus' : ''}`}>
         <div className="inputWraper">
           <input maxLength="2048" name="q" type="text" 
             autoComplete='off' placeholder="Type the plate"
+            onChange={onSearch}
             title="Search" onFocus={() => focusOn(true)} onBlur={() => focusOn(false)}
           />
         </div>
