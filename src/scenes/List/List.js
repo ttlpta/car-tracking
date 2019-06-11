@@ -1,10 +1,12 @@
 import React from "react";
 import styled from "styled-components";
 
-import { Logo, SearchInput } from "../../ui-components";
+import { Logo, SearchInput, ListVehicle, AddVehicleForm } from "../../ui-components";
 
 const SearchContainer = styled.div`
   padding : 20px 30px;
+  border-bottom: 1px solid #ebebeb;
+  position : sticky;
   > div {
     display : flex;
     align-items : center;
@@ -28,6 +30,8 @@ export default function List(props) {
           <SearchInputHere/>
         </div>
       </SearchContainer>
+      {/* <AddVehicleForm /> */}
+      <ListVehicle />
     </div>
   )
 }
