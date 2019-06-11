@@ -23,14 +23,15 @@ const SearchSuggestContainer = styled.div`
     overflow: hidden;
     padding-bottom: 4px;
     .btnContainer {
-      height: 70px;
+      height: 50px;
+      margin-top: 15px;
       input[type='button'] {
         height: 36px;
         line-height: 27px;
-        background-image: -webkit-gradient(linear,left top,left bottom,from(#f5f5f5),to(#f1f1f1));
-        background-image: -webkit-linear-gradient(top,#f5f5f5,#f1f1f1);
-        -webkit-border-radius: 2px;
-        -webkit-user-select: none;
+        background-image: gradient(linear,left top,left bottom,from(#f5f5f5),to(#f1f1f1));
+        background-image: linear-gradient(top,#f5f5f5,#f1f1f1);
+        border-radius: 2px;
+        user-select: none;
         background-color: #f2f2f2;
         border: 1px solid #f2f2f2;
         border-radius: 4px;
@@ -43,15 +44,15 @@ const SearchSuggestContainer = styled.div`
         padding: 0 16px;
         text-align: center;
         &:hover {
-          background-image: -webkit-gradient(linear,left top,left bottom,from(#f8f8f8),to(#f1f1f1));
-        background-image: -webkit-linear-gradient(top,#f8f8f8,#f1f1f1);
-        -webkit-box-shadow: 0 1px 1px rgba(0,0,0,0.1);
-        background-color: #f8f8f8;
-        background-image: linear-gradient(top,#f8f8f8,#f1f1f1);
-        background-image: -o-linear-gradient(top,#f8f8f8,#f1f1f1);
-        border: 1px solid #c6c6c6;
-        box-shadow: 0 1px 1px rgba(0,0,0,0.1);
-        color: #222;
+          background-image: gradient(linear,left top,left bottom,from(#f8f8f8),to(#f1f1f1));
+          background-image: linear-gradient(top,#f8f8f8,#f1f1f1);
+          box-shadow: 0 1px 1px rgba(0,0,0,0.1);
+          background-color: #f8f8f8;
+          background-image: linear-gradient(top,#f8f8f8,#f1f1f1);
+          background-image: -o-linear-gradient(top,#f8f8f8,#f1f1f1);
+          border: 1px solid #c6c6c6;
+          box-shadow: 0 1px 1px rgba(0,0,0,0.1);
+          color: #222;
         }
       }
     }

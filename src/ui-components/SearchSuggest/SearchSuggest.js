@@ -1,6 +1,6 @@
 import React from "react";
 
-import Button from "../Button/Button";
+import ButtonLink from "../ButtonLink/ButtonLink";
 import SearchSuggestContainer from "./SearchSuggestStyle";
 
 export default function SearchSuggest(props){
@@ -16,38 +16,41 @@ export default function SearchSuggest(props){
           <li>
             <div className="suggestItem">
               <div className="info">
-                <b>30A - 32122aaa</b>
+                <b>30A-32122, Nguyen Van A, Honda Vios</b>
               </div>
               <div className="action">
-                <div>Delete</div>
+                <div>Detail</div>
+                <div>Del</div>
               </div>
             </div>
           </li>
           <li>
             <div className="suggestItem">
               <div className="info">
-                <b>30A - 32122aaa</b>
+                <b>30A-45555, Nguyen Van B, Honda Vios</b>
               </div>
               <div className="action">
-                <div>Delete</div>
+                <div>Detail</div>
+                <div>Del</div>
               </div>
             </div>
           </li>
           <li>
             <div className="suggestItem">
               <div className="info">
-                <b>30A - 32122aaa</b>
+                <b>30A-36963, Nguyen Van B, Honda Vios</b>
               </div>
               <div className="action">
-                <div>Delete</div>
+                <div>Detail</div>
+                <div>Del</div>
               </div>
             </div>
           </li>
         </ul>
         <div className='btnContainer'>
           <center>
-            <Button label="Google Search"/> 
-            <Button label="I'm Feeling Lucky"/>
+            <ButtonLink to="/list" label="Add new truck"/> 
+            <ButtonLink  to="/list" label="Go to the list"/>
           </center>
         </div>
       </div>

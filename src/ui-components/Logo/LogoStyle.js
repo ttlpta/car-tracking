@@ -1,8 +1,8 @@
 import styled from "styled-components";
 
-const Logo = styled.h3`
+const LogoStyle = styled.h3`
   color : palevioletred;
+  font-size : ${ props => props.size == 'small' ? '18px' : '60px'}
 `;
-export const LogoLarge = styled(Logo)`
-  font-size : 60px;
-`;
+
+export default LogoStyle;

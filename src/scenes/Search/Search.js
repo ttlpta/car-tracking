@@ -9,10 +9,6 @@ export default function Search(props) {
       <center>
         <Logo />
         <SearchForm />
-        {/* <div>
-          <Button>Tìm kiếm</Button>
-          <Button>Thêm mới</Button>
-        </div> */}
       </center>
     </div>
   )

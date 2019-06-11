@@ -8,12 +8,15 @@ export default function SearchInput(props){
 
   function onSearch(e){
     const txt = e.target.value;
-    search(!!txt.length);
-    props.onChange(!!txt.length);
+    if(props.suggestion) {
+      search(!!txt.length);
+    }
+    
+    props.onChange(txt);
   }
 
   return(
-    <SearchInputContainer>
+    <SearchInputContainer className={props.className}>
       <div className={`searchWraper ${searching ? 'searching' : ''} ${focus ? 'focus' : ''}`}>
         <div className="inputWraper">
           <input maxLength="2048" name="q" type="text" 

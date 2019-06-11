@@ -38,7 +38,7 @@ const SearchInputContainer = styled.div`
         outline: none;
         display: flex;
         flex: 100%;
-        -webkit-tap-highlight-color: transparent;
+        tap-highlight-color: transparent;
       }
     }
     > div.btnWraper {

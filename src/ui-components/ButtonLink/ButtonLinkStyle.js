@@ -1,6 +1,7 @@
 import styled from "styled-components";
+import { Link } from "react-router-dom";
 
-const Button = styled.input`
+const ButtonLinkStyle = styled(Link)`
   height: 36px;
   line-height: 27px;
   background-image: gradient(linear,left top,left bottom,from(#f5f5f5),to(#f1f1f1));
@@ -16,7 +17,7 @@ const Button = styled.input`
   font-size: 14px;
   margin: 11px 4px;
   min-width: 54px;
-  padding: 0 16px;
+  padding: 10px 16px;
   text-align: center;
   &:hover {
     background-image: gradient(linear,left top,left bottom,from(#f8f8f8),to(#f1f1f1));
@@ -31,4 +32,4 @@ const Button = styled.input`
   }
 `;
 
-export default Button;
+export default ButtonLinkStyle;
