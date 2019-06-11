@@ -1,7 +1,7 @@
-import React from "react";
+import React, { useState } from "react";
 import styled from "styled-components";
 
-import { Logo, SearchInput, ListVehicle, AddVehicleForm } from "../../ui-components";
+import { Logo, SearchInput, ListVehicle, AddVehicleForm, Button } from "../../ui-components";
 
 const SearchContainer = styled.div`
   padding : 20px 30px;
@@ -20,8 +20,16 @@ const SearchInputHere = styled(SearchInput)`
   width : 40%;
 `;
 
+const CustomDiv = styled.div`
+  padding : 10px;
+  margin : 10px 0px;
+`;
+
 export default function List(props) {
-    
+  
+  const [ showAddForm, openAddForm ] = useState(false);
+  
+
   return (
     <div>
       <SearchContainer>
@@ -30,7 +38,13 @@ export default function List(props) {
           <SearchInputHere/>
         </div>
       </SearchContainer>
-      {/* <AddVehicleForm /> */}
+      <CustomDiv>
+        <Button label="Add" onClick={() => openAddForm(!showAddForm)}/>
+      </CustomDiv>
+      {
+        showAddForm && 
+        <AddVehicleForm />
+      }
       <ListVehicle />
     </div>
   )

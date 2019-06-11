@@ -1,11 +1,21 @@
 import React from "react";
 
+import InputTxtContainer from "./InputTxtStyle";
+
 export default function InputTxt(props){
 
   return (
-    <div>
-      <label for={props.name}>{props.label}</label>
-      <input type='text' name={props.name} placeholder={props.placeholder}/>
-    </div>
+    <InputTxtContainer>
+      <label for={props.name}>{props.label}</label> 
+      {
+        props.multiline && 
+        <textarea name={props.name} placeholder={props.placeholder} rows={3}>
+        </textarea>
+      }
+      {
+        ! props.multiline && 
+        <input type='text' name={props.name} placeholder={props.placeholder}/>
+      }
+    </InputTxtContainer>
   );
 }
