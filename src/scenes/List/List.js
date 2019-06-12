@@ -20,16 +20,8 @@ const SearchInputHere = styled(SearchInput)`
   width : 40%;
 `;
 
-const CustomDiv = styled.div`
-  padding : 10px;
-  margin : 10px 0px;
-`;
-
 export default function List(props) {
   
-  const [ showAddForm, openAddForm ] = useState(false);
-  
-
   return (
     <div>
       <SearchContainer>
@@ -38,13 +30,7 @@ export default function List(props) {
           <SearchInputHere/>
         </div>
       </SearchContainer>
-      <CustomDiv>
-        <Button label="Add" onClick={() => openAddForm(!showAddForm)}/>
-      </CustomDiv>
-      {
-        showAddForm && 
-        <AddVehicleForm />
-      }
+      <AddVehicleForm />
       <ListVehicle />
     </div>
   )
