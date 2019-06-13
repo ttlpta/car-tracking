@@ -10,6 +10,13 @@ const Th = function(props) {
 
   return (<th onClick={ () => visit(!visited) } className={ visited ? 'desc' : '' }>{props.children}</th>);
 }
+
+const Tr = function(props) {
+  const [ visited, visit ] = useState(false);
+
+  return (<tr onClick={ () => visit(!visited) } className={ visited ? 'visited' : '' }>{props.children}</tr>);
+}
+
 export default function ListVehicle(params) {
 
   return (
@@ -20,14 +27,14 @@ export default function ListVehicle(params) {
             <td>
               <input type="checkbox"/>
             </td>
-            <td colspan="1">
+            <td colSpan="1">
               <div>
                 <Button label={'Delete'}/>
                 <Button label={'Hide'}/>
               </div>
             </td>
-            <td colspan="7"></td>
-            <td colspan="2">
+            <td colSpan="7"></td>
+            <td colSpan="2">
               <div>
                 <div>1 - 10 in 40 records</div>
                 <div>
@@ -39,7 +46,7 @@ export default function ListVehicle(params) {
           </tr>
         </thead>
         <tbody>
-          <tr>
+          <Tr>
             <Th className="desc">Truck plate</Th>
             <Th>Cargo type</Th>
             <Th>Driver</Th>
@@ -51,8 +58,8 @@ export default function ListVehicle(params) {
             <Th>Status</Th>
             <Th>Description</Th>
             <Th>Action</Th>
-          </tr>
-          <tr>
+          </Tr>
+          <Tr>
             <td><QuickEditInput value="30A-12345"/></td>
             <td><QuickEditInput value="Computer"/></td>
             <td><QuickEditInput value="Nguyen Van A"/></td>
@@ -69,8 +76,8 @@ export default function ListVehicle(params) {
                 <span>Delete</span>
               </div>
             </td>
-          </tr>
-          <tr>
+          </Tr>
+          <Tr>
             <td><QuickEditInput value="30A-12345"/></td>
             <td><QuickEditInput value="Computer"/></td>
             <td><QuickEditInput value="Nguyen Van A"/></td>
@@ -87,8 +94,8 @@ export default function ListVehicle(params) {
                 <span>Delete</span>
               </div>
             </td>
-          </tr>
-          <tr>
+          </Tr>
+          <Tr>
             <td><QuickEditInput value="30A-12345"/></td>
             <td><QuickEditInput value="Computer"/></td>
             <td><QuickEditInput value="Nguyen Van A"/></td>
@@ -105,8 +112,8 @@ export default function ListVehicle(params) {
                 <span>Delete</span>
               </div>
             </td>
-          </tr>
-          <tr>
+          </Tr>
+          <Tr>
             <td><QuickEditInput value="30A-12345"/></td>
             <td><QuickEditInput value="Computer"/></td>
             <td><QuickEditInput value="Nguyen Van A"/></td>
@@ -123,8 +130,8 @@ export default function ListVehicle(params) {
                 <span>Delete</span>
               </div>
             </td>
-          </tr>
-          <tr>
+          </Tr>
+          <Tr>
             <td><QuickEditInput value="30A-12345"/></td>
             <td><QuickEditInput value="Computer"/></td>
             <td><QuickEditInput value="Nguyen Van A"/></td>
@@ -141,8 +148,8 @@ export default function ListVehicle(params) {
                 <span>Delete</span>
               </div>
             </td>
-          </tr>
-          <tr>
+          </Tr>
+          <Tr>
             <td><QuickEditInput value="30A-12345"/></td>
             <td><QuickEditInput value="Computer"/></td>
             <td><QuickEditInput value="Nguyen Van A"/></td>
@@ -159,8 +166,8 @@ export default function ListVehicle(params) {
                 <span>Delete</span>
               </div>
             </td>
-          </tr>
-          <tr>
+          </Tr>
+          <Tr>
             <td><QuickEditInput value="30A-12345"/></td>
             <td><QuickEditInput value="Computer"/></td>
             <td><QuickEditInput value="Nguyen Van A"/></td>
@@ -177,8 +184,8 @@ export default function ListVehicle(params) {
                 <span>Delete</span>
               </div>
             </td>
-          </tr>
-          <tr>
+          </Tr>
+          <Tr>
             <td><QuickEditInput value="30A-12345"/></td>
             <td><QuickEditInput value="Computer"/></td>
             <td><QuickEditInput value="Nguyen Van A"/></td>
@@ -195,8 +202,8 @@ export default function ListVehicle(params) {
                 <span>Delete</span>
               </div>
             </td>
-          </tr>
-          <tr>
+          </Tr>
+          <Tr>
             <td><QuickEditInput value="30A-12345"/></td>
             <td><QuickEditInput value="Computer"/></td>
             <td><QuickEditInput value="Nguyen Van A"/></td>
@@ -213,8 +220,8 @@ export default function ListVehicle(params) {
                 <span>Delete</span>
               </div>
             </td>
-          </tr>
-          <tr>
+          </Tr>
+          <Tr>
             <td><QuickEditInput value="30A-12345"/></td>
             <td><QuickEditInput value="Computer"/></td>
             <td><QuickEditInput value="Nguyen Van A"/></td>
@@ -231,7 +238,7 @@ export default function ListVehicle(params) {
                 <span>Delete</span>
               </div>
             </td>
-          </tr>
+          </Tr>
           
         </tbody>
       </table>

@@ -6,7 +6,7 @@ export default function InputTxt(props){
 
   return (
     <InputTxtContainer>
-      <label for={props.name}>{props.label}</label> 
+      <label htmlFor={props.name}>{props.label}</label> 
       {
         props.multiline && 
         <textarea name={props.name} placeholder={props.placeholder} rows={3}>

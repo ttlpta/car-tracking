@@ -35,6 +35,9 @@ const ListVehicleContainer = styled.div`
         &:nth-child(odd) {
           background-color: #FFF;
         }
+        &.visited {
+          background-color : #bbeaff;
+        }
         th {
           font-weight : bold;
           background-color : #ffffcc;
