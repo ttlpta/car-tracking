@@ -15,7 +15,6 @@ Open [http://localhost:8080](http://localhost:8080)
 </p>
 
 <p>This screen contains functions like Search, Quick delete the item and go to the detail of item.</p>
-----
 2, List screen : 
  - Quick edit when double click to item
 <p align='center'>
