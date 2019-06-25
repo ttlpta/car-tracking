@@ -6,5 +6,6 @@ import SearchSuggest from "./SearchSuggest/SearchSuggest";
 import ListVehicle from "./ListVehicle/ListVehicle";
 import AddVehicleForm from "./AddVehicleForm/AddVehicleForm";
 import Button from "./Button/Button";
+import Test, { TestAbc } from "./Test/Test";
 
-export { Loading, Logo, SearchInput, SearchForm, SearchSuggest, ListVehicle, AddVehicleForm, Button };
+export { Test, TestAbc, Loading, Logo, SearchInput, SearchForm, SearchSuggest, ListVehicle, AddVehicleForm, Button };
