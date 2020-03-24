@@ -1,14 +1,14 @@
 import styled from "styled-components";
 
-const SearhFormContainer = styled.div`
+const SearchFormWrapper = styled.div`
   position: relative;
   margin: 0 auto;
   padding-left: 12px;
   padding-top: 6px;
-  width : 45%;
+  width: 45%;
 
   > .btnContainer {
-    width : 100%;
+    width: 100%;
     padding-top: 18px;
     position: absolute;
     top: 53px;
@@ -16,4 +16,4 @@ const SearhFormContainer = styled.div`
   }
 `;
 
-export default SearhFormContainer;
+export default SearchFormWrapper;

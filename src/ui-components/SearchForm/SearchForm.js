@@ -2,27 +2,25 @@ import React, { useState } from "react";
 
 import SearchInput from "../SearchInput/SearchInput";
 import ButtonLink from "../ButtonLink/ButtonLink";
-import SearchSuggest from '../SearchSuggest/SearchSuggest';
-import SearhFormContainer from './SearchFormStyle';
+import SearchSuggest from "../SearchSuggest/SearchSuggest";
+import SearchFormWrapper from "./SearchFormWrapper";
 
-export default function SearchForm(params) {
-  
-  const [ searching, search ] = useState(false);
+export default function SearchForm() {
+  const [searching, search] = useState(false);
 
-  function handleSearching(txt){
+  function handleSearching(txt) {
     search(!!txt.length);
   }
 
   return (
-    <SearhFormContainer>
-      <SearchInput onChange={handleSearching} suggestion={true}/>
-      <SearchSuggest searching={searching}/>
-      <div className='btnContainer'>
+    <SearchFormWrapper>
+      <SearchInput onChange={handleSearching} hasSuggestion={true} />
+      <div className="btnContainer">
         <center>
-          <ButtonLink to="/list" label="Add new truck"/> 
-          <ButtonLink  to="/list" label="Go to the list"/>
+          <ButtonLink to="/list" label="Add new truck" />
+          <ButtonLink to="/list" label="Go to the list" />
         </center>
       </div>
-    </SearhFormContainer>
+    </SearchFormWrapper>
   );
 }

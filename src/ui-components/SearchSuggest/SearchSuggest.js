@@ -1,16 +1,15 @@
 import React from "react";
 
 import ButtonLink from "../ButtonLink/ButtonLink";
-import SearchSuggestContainer from "./SearchSuggestStyle";
+import SearchSuggestWrapper from "./SearchSuggestWrapper";
 
-export default function SearchSuggest(props){
-
-  if(!props.searching) {
+export default function SearchSuggest(props) {
+  if (!props.searching) {
     return null;
   }
 
   return (
-    <SearchSuggestContainer >
+    <SearchSuggestWrapper>
       <div className="suggestWrapper">
         <ul>
           <li>
@@ -47,13 +46,13 @@ export default function SearchSuggest(props){
             </div>
           </li>
         </ul>
-        <div className='btnContainer'>
+        <div className="btnContainer">
           <center>
-            <ButtonLink to="/list" label="Add new truck"/> 
-            <ButtonLink  to="/list" label="Go to the list"/>
+            <ButtonLink to="/list" label="Add new truck" />
+            <ButtonLink to="/list" label="Go to the list" />
           </center>
         </div>
       </div>
-    </SearchSuggestContainer>
+    </SearchSuggestWrapper>
   );
 }

@@ -1,21 +1,14 @@
-import React, { addReducer } from "reactn";
+import React from "reactn";
 
-import initStore from "../../store";
-import combineReducers from "../../reducers";
-import { Logo, SearchForm, Test, TestAbc } from "../../ui-components";
-initStore();
-combineReducers();
+import { Logo, SearchForm } from "../../ui-components";
 
 export default function Search(props) {
-    
   return (
     <div>
       <center>
-        <Test />
-        <TestAbc />
         <Logo />
         <SearchForm />
       </center>
     </div>
-  )
+  );
 }
