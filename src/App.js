@@ -2,7 +2,7 @@ import React, { Suspense, lazy, Fragment } from "react";
 import { Switch, BrowserRouter as Router, Route } from "react-router-dom";
 import { ThemeProvider } from "styled-components";
 
-import { Loading } from "./ui-components";
+import { Loading } from "./components";
 
 import initStore from "./store";
 import combineReducers from "./reducers";

@@ -7,7 +7,7 @@ import {
   ListVehicle,
   AddVehicleForm,
   Button
-} from "../../ui-components";
+} from "../../components";
 
 const SearchContainer = styled.div`
   padding: 20px 30px;

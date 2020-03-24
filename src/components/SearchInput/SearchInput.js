@@ -4,17 +4,18 @@ import PropTypes from "prop-types";
 import SearchInputWrapper from "./SearchInputWrapper";
 import SearchSuggest from "../SearchSuggest/SearchSuggest";
 
+import * as SuggestionService from "../../Services/SuggestionService";
+
 export default function SearchInput(props) {
   const [focus, focusOn] = useState(false);
   const [searching, search] = useState(false);
 
-  function onSearch(e) {
-    const txt = e.target.value;
+  function handleChange(e) {
     if (props.hasSuggestion) {
+      const txt = e.target.value;
       search(!!txt.length);
+      SuggestionService.searchCar();
     }
-
-    props.onChange(txt);
   }
 
   return (
@@ -30,7 +31,7 @@ export default function SearchInput(props) {
             type="text"
             autoComplete="off"
             placeholder="Type the plate"
-            onChange={onSearch}
+            onChange={handleChange}
             title="Search"
             onFocus={() => focusOn(true)}
             onBlur={() => focusOn(false)}
@@ -43,8 +44,7 @@ export default function SearchInput(props) {
 }
 
 SearchInput.propTypes = {
-  hasSuggestion: PropTypes.bool,
-  onChange: PropTypes.func
+  hasSuggestion: PropTypes.bool
 };
 
 SearchInput.defaultProps = {
