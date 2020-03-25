@@ -9,12 +9,18 @@ import * as SuggestionService from "../../Services/SuggestionService";
 export default function SearchInput(props) {
   const [focus, focusOn] = useState(false);
   const [searching, search] = useState(false);
+  const [suggestionData, setSuggestionData] = useState([]);
 
-  function handleChange(e) {
+  async function handleChange(e) {
     if (props.hasSuggestion) {
       const txt = e.target.value;
       search(!!txt.length);
-      SuggestionService.searchCar();
+      try {
+        const suggestionItems = await SuggestionService.searchCar();
+        setSuggestionData(suggestionItems);
+      } catch (error) {
+        console.log(error);
+      }
     }
   }
 
@@ -38,7 +44,9 @@ export default function SearchInput(props) {
           />
         </div>
       </div>
-      {props.hasSuggestion && <SearchSuggest searching={searching} />}
+      {props.hasSuggestion && (
+        <SearchSuggest searching={searching} items={suggestionData} />
+      )}
     </SearchInputWrapper>
   );
 }

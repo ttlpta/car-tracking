@@ -1,4 +1,5 @@
 import React from "react";
+import PropTypes from "prop-types";
 
 import ButtonLink from "../ButtonLink/ButtonLink";
 import SearchSuggestWrapper from "./SearchSuggestWrapper";
@@ -12,39 +13,19 @@ export default function SearchSuggest(props) {
     <SearchSuggestWrapper>
       <div className="suggestWrapper">
         <ul>
-          <li>
-            <div className="suggestItem">
-              <div className="info">
-                <b>30A-32122, Nguyen Van A, Honda Vios</b>
+          {props.items.map((item, idx) => (
+            <li>
+              <div className="suggestItem">
+                <div className="info">
+                  <b>{{ `${item.id} - ${item.plate} - ${item.name}`}}</b>
+                </div>
+                <div className="action">
+                  <div>Detail</div>
+                  <div>Del</div>
+                </div>
               </div>
-              <div className="action">
-                <div>Detail</div>
-                <div>Del</div>
-              </div>
-            </div>
-          </li>
-          <li>
-            <div className="suggestItem">
-              <div className="info">
-                <b>30A-45555, Nguyen Van B, Honda Vios</b>
-              </div>
-              <div className="action">
-                <div>Detail</div>
-                <div>Del</div>
-              </div>
-            </div>
-          </li>
-          <li>
-            <div className="suggestItem">
-              <div className="info">
-                <b>30A-36963, Nguyen Van B, Honda Vios</b>
-              </div>
-              <div className="action">
-                <div>Detail</div>
-                <div>Del</div>
-              </div>
-            </div>
-          </li>
+            </li>
+          ))}
         </ul>
         <div className="btnContainer">
           <center>
@@ -56,3 +37,13 @@ export default function SearchSuggest(props) {
     </SearchSuggestWrapper>
   );
 }
+
+SearchSuggest.propTypes = {
+  searching: PropTypes.bool,
+  items: PropTypes.array
+};
+
+SearchSuggest.defaultProps = {
+  searching: false,
+  items: []
+};
