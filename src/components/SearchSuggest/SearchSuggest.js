@@ -14,10 +14,10 @@ export default function SearchSuggest(props) {
       <div className="suggestWrapper">
         <ul>
           {props.items.map((item, idx) => (
-            <li>
+            <li key={item.id}>
               <div className="suggestItem">
                 <div className="info">
-                  <b>{{ `${item.id} - ${item.plate} - ${item.name}`}}</b>
+                  <b>{`${item.id} - ${item.plate} - ${item.name}`}</b>
                 </div>
                 <div className="action">
                   <div>Detail</div>
