@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-const InputTxtContainer = styled.div`
+export default styled.div`
   display: flex;
   flex-direction: column;
   padding: 5px;
@@ -13,11 +13,9 @@ const InputTxtContainer = styled.div`
     border-radius: 3px;
     border: 1px solid #d4d4d4;
   }
-  textarea{
-    resize : none;
+  textarea {
+    resize: none;
     border-radius: 3px;
     border: 1px solid #d4d4d4;
   }
 `;
-
-export default InputTxtContainer;

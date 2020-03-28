@@ -35,5 +35,42 @@
       "address": "Preston Court",
       "status": 2
     }
+  ],
+  "cars": [
+    {
+      "id": "5e7b7e636dd5019002ab71a1",
+      "plate": "do",
+      "name": "Cannon Nixon",
+      "address": "Keap Street",
+      "status": 1
+    },
+    {
+      "id": "5e7b7e6306be803457ca9e44",
+      "plate": "deserunt",
+      "name": "Valentine Oneill",
+      "address": "Coyle Street",
+      "status": 2
+    },
+    {
+      "id": "5e7b7e638152a1173f09b3f9",
+      "plate": "adipisicing",
+      "name": "Myra French",
+      "address": "Autumn Avenue",
+      "status": 1
+    },
+    {
+      "id": "5e7b7e6321c2f0d10268329d",
+      "plate": "minim",
+      "name": "Hunt Hunt",
+      "address": "Visitation Place",
+      "status": 2
+    },
+    {
+      "id": "5e7b7e635610eda6e7c9c95c",
+      "plate": "aliqua",
+      "name": "Erna Tyler",
+      "address": "Preston Court",
+      "status": 2
+    }
   ]
 }

@@ -1,42 +1,24 @@
-import React, { useState } from "react";
-import styled from "styled-components";
+import React from "react";
+import ListWrapper from "./ListWrapper";
 
 import {
   Logo,
   SearchInput,
   ListVehicle,
-  AddVehicleForm,
-  Button
+  AddVehicleForm
 } from "../../components";
-
-const SearchContainer = styled.div`
-  padding: 20px 30px;
-  border-bottom: 1px solid #ebebeb;
-  position: sticky;
-  > div {
-    display: flex;
-    align-items: center;
-  }
-`;
-const LogoHere = styled(Logo)`
-  margin: 1em 15px;
-`;
-
-const SearchInputHere = styled(SearchInput)`
-  width: 40%;
-`;
 
 export default function List(props) {
   return (
-    <div>
-      <SearchContainer>
+    <ListWrapper>
+      <div className="search-container">
         <div>
-          <LogoHere small />
-          <SearchInputHere />
+          <Logo small className="logo" />
+          <SearchInput className="search-input" />
         </div>
-      </SearchContainer>
+      </div>
       <AddVehicleForm />
       <ListVehicle />
-    </div>
+    </ListWrapper>
   );
 }

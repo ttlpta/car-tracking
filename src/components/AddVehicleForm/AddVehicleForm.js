@@ -1,35 +1,45 @@
-import React from 'react';
+import React from "react";
+import { useForm } from "react-hook-form";
 
 import InputTxt from "../InputTxt/InputTxt";
 import Button from "../Button/Button";
-import AddVehicleFormContainer from "./AddVehicleFormStyle";
+import AddVehicleFormWrapper from "./AddVehicleFormWrapper";
 
-export default function AddVehicleForm(props){
+export default function AddVehicleForm(props) {
+  const { register, handleSubmit, errors } = useForm();
+  const onSubmit = data => {
+    console.log("===>", data);
+  };
 
   return (
-    <AddVehicleFormContainer>
-      <div className="topSection">
-        <div>
-          <InputTxt label="Truck plate" name="plate"/>
-          <InputTxt label="Truck plate" name="plate"/>
-          <InputTxt label="Truck plate" name="plate"/>
-          <InputTxt label="Truck plate" name="plate" multiline/>
+    <AddVehicleFormWrapper>
+      <form onSubmit={handleSubmit(onSubmit)}>
+        <div className="topSection">
+          <InputTxt
+            label="Truck plate"
+            name="plate"
+            ref={register({ required: true })}
+            errorMsg={errors.plate ? "This field is required" : ""}
+          />
+          <InputTxt
+            label="Name"
+            name="name"
+            ref={register({ required: true })}
+            errorMsg={errors.name ? "This field is required" : ""}
+          />
+          <InputTxt
+            label="Address"
+            name="address"
+            multiline
+            ref={register({ required: true })}
+            errorMsg={errors.name ? "This field is required" : ""}
+          />
         </div>
-        <div>
-          <InputTxt label="Truck plate" name="plate"/>
-          <InputTxt label="Truck plate" name="plate"/>
-          <InputTxt label="Truck plate" name="plate"/>
+        <div className="actionSection">
+          <Button label="Submit" type="submit" />
+          <Button label="Reset" />
         </div>
-        <div>
-          <InputTxt label="Truck plate" name="plate"/>
-          <InputTxt label="Truck plate" name="plate"/>
-          <InputTxt label="Truck plate" name="plate"/>
-        </div>
-      </div>
-      <div className="actionSection">
-        <Button label="Submit"/>
-        <Button label="Reset"/>
-      </div>
-    </AddVehicleFormContainer>
+      </form>
+    </AddVehicleFormWrapper>
   );
 }

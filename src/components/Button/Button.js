@@ -1,9 +1,25 @@
 import React from "react";
+import PropTypes from "prop-types";
 
-import Button from "./ButtonStyle";
+import ButtonWrapper from "./ButtonWrapper";
 
-export default function Btn(props){
+export default function Button(props) {
   return (
-    <Button value={props.label} aria-label={props.label} type="button" onClick={props.onClick}/> 
+    <ButtonWrapper
+      value={props.label}
+      aria-label={props.label}
+      type={props.type}
+      onClick={props.onClick}
+    />
   );
 }
+
+Button.propTypes = {
+  label: PropTypes.string.isRequired,
+  type: PropTypes.string,
+  onClick: PropTypes.func
+};
+
+Button.defaultProps = {
+  type: "button"
+};

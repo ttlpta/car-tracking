@@ -1,8 +1,12 @@
 import React from "react";
+import PropTypes from "prop-types";
 
-import ButtonLinkStyle from "./ButtonLinkStyle";
+import ButtonLinkWrapper from "./ButtonLinkWrapper";
 
 export default function ButtonLink({ label, ...remainProps }) {
-  
-  return (<ButtonLinkStyle {...remainProps}>{label}</ButtonLinkStyle>)
+  return <ButtonLinkWrapper {...remainProps}>{label}</ButtonLinkWrapper>;
 }
+
+ButtonLink.propTypes = {
+  label: PropTypes.string.isRequired
+};
