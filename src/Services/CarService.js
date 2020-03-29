@@ -1,12 +1,11 @@
 import axios from "../axios";
 
-export const addCar = async data => {
+export const addCar = async body => {
   try {
-    const { data, status } = await axios.post("/cars", data);
-    if (status !== 200) throw "Error";
+    const { data, status } = await axios.post("/cars", body);
+    if (status !== 201) throw "Error";
 
-    console.log("===>", data);
-    return data;
+    return !!data.id;
   } catch (error) {
     throw error;
   }

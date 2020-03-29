@@ -5,9 +5,9 @@ import { ThemeProvider } from "styled-components";
 import { Loading } from "./components";
 
 import initStore from "./store";
-import combineReducers from "./reducers";
 
 import Normalize from "./Normalize";
+import NotificationPopup from "./components/NotificationPopup/NotificationPopup";
 import themeLight from "./themes/defaultTheme";
 
 const Search = lazy(() => import("./scenes/Search/Search"));
@@ -17,12 +17,12 @@ const Page500 = lazy(() => import("./scenes/500/Page500"));
 const Page404 = lazy(() => import("./scenes/404/Page404"));
 
 initStore();
-combineReducers();
 
 export default function App() {
   return (
     <Fragment>
       <Normalize />
+      <NotificationPopup />
       <ThemeProvider theme={themeLight}>
         <Router>
           <Suspense fallback={Loading()}>
