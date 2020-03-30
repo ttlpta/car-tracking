@@ -7,3 +7,7 @@ export const Span = styled.span`
 export const TextArea = styled.textarea`
   width : 100%;
 `;
+
+export default styled.div`
+  
+`;

@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-const ListVehicleContainer = styled.div`
+export default styled.div`
   padding : 30px;
   table {
     border-collapse: collapse;
@@ -79,5 +79,3 @@ const ListVehicleContainer = styled.div`
     }
   }
 `;
-
-export default ListVehicleContainer;

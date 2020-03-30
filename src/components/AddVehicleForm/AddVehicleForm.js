@@ -12,15 +12,15 @@ export default function AddVehicleForm(props) {
   const showNotification = useDispatch(notificationReducer.show);
 
   const onSubmit = async data => {
-    // const success = await CarService.addCar(data);
-    // if (success) {
-    showNotification({
-      type: "success",
-      show: true,
-      message: "Success"
-    });
-    reset();
-    // }
+    const success = await CarService.addCar(data);
+    if (success) {
+      showNotification({
+        type: "success",
+        show: true,
+        message: "Success"
+      });
+      reset();
+    }
   };
 
   return (
