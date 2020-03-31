@@ -1,15 +1,21 @@
 import React, { useState, useCallback } from "react";
+import { useRouteMatch, Link } from "react-router-dom";
+
 import ListVehicleWrapper from "./ListVehicleWrapper";
 import Button from "../Button/Button";
 
 import QuickEditInput from "../QuickEditInput/QuickEditInput";
 import QuickEditTextArea from "../QuickEditTextArea/QuickEditTextArea";
 
-const Th = function({children, ...props}) {
+const Th = function({ children, ...props }) {
   const [visited, visit] = useState(false);
 
   return (
-    <th onClick={() => visit(!visited)} className={visited ? "desc" : ""} {...props}>
+    <th
+      onClick={() => visit(!visited)}
+      className={visited ? "desc" : ""}
+      {...props}
+    >
       {children}
     </th>
   );
@@ -17,7 +23,7 @@ const Th = function({children, ...props}) {
 
 const Tr = function(props) {
   const [visited, visit] = useState(false);
-  
+
   return (
     <tr onClick={() => visit(!visited)} className={visited ? "visited" : ""}>
       {props.children}
@@ -26,6 +32,8 @@ const Tr = function(props) {
 };
 
 export default function ListVehicle(props) {
+  const { path, url } = useRouteMatch();
+
   return (
     <ListVehicleWrapper className={`${props.className}`}>
       <table align="center">
@@ -63,7 +71,7 @@ export default function ListVehicle(props) {
             <td>
               <QuickEditInput value="30A-12345" />
             </td>
-            <td >
+            <td>
               <QuickEditInput value="Computer" />
             </td>
             <td colSpan="8">
@@ -71,7 +79,9 @@ export default function ListVehicle(props) {
             </td>
             <td>
               <div>
-                <span>Edit</span>
+                <span>
+                  <Link to={`${path}/car/qwerty`}>Edit</Link>
+                </span>
                 <span>Delete</span>
               </div>
             </td>

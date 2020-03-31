@@ -1,21 +1,18 @@
 import React, { useGlobal, useDispatch, addCallback, useEffect } from "reactn";
 
-import { incrementReducer, decrementReducer } from "../../reducers";
-
-export default function Test(){
-
-  const [ ta, setTa ] = useGlobal('tuananh');
+export default function Test() {
+  const [ta, setTa] = useGlobal("tuananh");
   const increment = useDispatch(incrementReducer);
   const decrement = useDispatch(decrementReducer);
-  const increment2 = useDispatch('increment');
+  const increment2 = useDispatch("increment");
 
   useEffect(() => {
-    console.log('rerender');
+    console.log("rerender");
     // setTimeout(() => {
     //   setTa(65865);
     // }, 1000);
-  }, [ta])
-  
+  }, [ta]);
+
   return (
     <div>
       <div>{ta}</div>
@@ -28,19 +25,13 @@ export default function Test(){
   );
 }
 
-export function TestAbc(){
-
+export function TestAbc() {
   addCallback(global => {
     // console.log(`The new value is ${global.tuananh}!`);
-  
+
     // If the global state is anything other than 1, don't change it.
     return null;
   });
 
-  return (
-    <div>
-      TestAbc
-    </div>
-  );
+  return <div>TestAbc</div>;
 }
-
