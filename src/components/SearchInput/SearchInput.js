@@ -29,7 +29,7 @@ export default function SearchInput(props) {
       <div
         className={`searchWraper ${searching ? "searching" : ""} ${
           focus ? "focus" : ""
-        }`}
+        } ${props.className}`}
       >
         <div className="inputWraper">
           <input

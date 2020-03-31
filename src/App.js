@@ -29,7 +29,7 @@ export default function App() {
             <Page500>
               <Switch>
                 <Route exact path="/" name="Home page" component={Search} />
-                <Route exact path="/list" name="List Page" component={List} />
+                <Route path="/list" name="List Page" component={List} />
                 <Route
                   exact
                   path="/detail"

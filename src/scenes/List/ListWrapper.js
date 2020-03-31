@@ -11,9 +11,15 @@ export default styled.div`
       .logo {
         margin: 1em 15px;
       }
-      .search-input {
-        width: 40%;
-      }
+    }
+  }
+  .list-body {
+    display: flex;
+    .list {
+      flex : 1
+    }
+    .preview {
+      flex : 1
     }
   }
 `;

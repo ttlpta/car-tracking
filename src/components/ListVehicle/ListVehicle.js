@@ -5,20 +5,19 @@ import Button from "../Button/Button";
 import QuickEditInput from "../QuickEditInput/QuickEditInput";
 import QuickEditTextArea from "../QuickEditTextArea/QuickEditTextArea";
 
-const Th = function(props) {
+const Th = function({children, ...props}) {
   const [visited, visit] = useState(false);
 
   return (
-    <th onClick={() => visit(!visited)} className={visited ? "desc" : ""}>
-      {props.children}
+    <th onClick={() => visit(!visited)} className={visited ? "desc" : ""} {...props}>
+      {children}
     </th>
   );
 };
 
 const Tr = function(props) {
   const [visited, visit] = useState(false);
-  const item = {};
-  const handleClick = useCallback(() => visit(!visited), [item]);
+  
   return (
     <tr onClick={() => visit(!visited)} className={visited ? "visited" : ""}>
       {props.children}
@@ -26,9 +25,9 @@ const Tr = function(props) {
   );
 };
 
-export default function ListVehicle(params) {
+export default function ListVehicle(props) {
   return (
-    <ListVehicleWrapper>
+    <ListVehicleWrapper className={`${props.className}`}>
       <table align="center">
         <thead>
           <tr>
@@ -57,17 +56,17 @@ export default function ListVehicle(params) {
           <Tr>
             <Th className="desc">Truck plate</Th>
             <Th>Name</Th>
-            <Th>Address</Th>
+            <Th colSpan="8">Address</Th>
             <Th>Action</Th>
           </Tr>
           <Tr>
             <td>
               <QuickEditInput value="30A-12345" />
             </td>
-            <td>
+            <td >
               <QuickEditInput value="Computer" />
             </td>
-            <td>
+            <td colSpan="8">
               <QuickEditTextArea value="Excepteur consequat incididunt ipsum deserunt irure sint aliqua elit esse." />
             </td>
             <td>
