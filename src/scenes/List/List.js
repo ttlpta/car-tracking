@@ -26,11 +26,9 @@ export default function List(props) {
       <div className="list-body">
         <ListVehicle className="list" />
         <div className="preview">
-          <h3>Preview detail car</h3>
+          <h3>Detail</h3>
           <Switch>
-            <Route path={`${path}/car/:carId`}>
-              <Detail />
-            </Route>
+            <Route path={`${path}/car/:carId`} component={Detail} />
           </Switch>
         </div>
       </div>

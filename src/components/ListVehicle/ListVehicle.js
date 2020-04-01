@@ -1,11 +1,12 @@
-import React, { useState, useCallback } from "react";
+import React, { useState, useEffect } from "react";
 import { useRouteMatch, Link } from "react-router-dom";
 
 import ListVehicleWrapper from "./ListVehicleWrapper";
 import Button from "../Button/Button";
-
 import QuickEditInput from "../QuickEditInput/QuickEditInput";
 import QuickEditTextArea from "../QuickEditTextArea/QuickEditTextArea";
+import useNotification from "../../hooks/useNotification";
+import * as CarService from "../../Services/CarService";
 
 const Th = function({ children, ...props }) {
   const [visited, visit] = useState(false);
@@ -32,29 +33,54 @@ const Tr = function(props) {
 };
 
 export default function ListVehicle(props) {
-  const { path, url } = useRouteMatch();
+  const { path } = useRouteMatch();
+  const [cars, setCars] = useState([]);
+  const [page, setPage] = useState(1);
+  const { showError } = useNotification();
+
+  useEffect(() => {
+    (async () => {
+      try {
+        const cars = await CarService.listCar();
+        setCars(cars);
+      } catch (error) {
+        showError(error);
+      }
+    })();
+  }, []);
+
+  const nextPage = async () => {
+    try {
+      const cars = await CarService.listCar(page + 1);
+      setCars(cars);
+      setPage(page + 1);
+    } catch (error) {
+      showError(error);
+    }
+  };
+
+  const prePage = async () => {
+    try {
+      const cars = await CarService.listCar(page - 1);
+      setCars(cars);
+      setPage(page - 1);
+    } catch (error) {
+      showError(error);
+    }
+  };
 
   return (
     <ListVehicleWrapper className={`${props.className}`}>
       <table align="center">
         <thead>
           <tr>
-            <td>
-              <input type="checkbox" />
-            </td>
-            <td colSpan="1">
-              <div>
-                <Button label={"Delete"} />
-                <Button label={"Hide"} />
-              </div>
-            </td>
-            <td colSpan="7"></td>
+            <td colSpan="9"></td>
             <td colSpan="2">
               <div>
-                <div>1 - 10 in 40 records</div>
+                <div>Current Page : {page}</div>
                 <div>
-                  <Button label={"Pre"} />
-                  <Button label={"Next"} />
+                  <Button label={"Pre"} onClick={prePage} />
+                  <Button label={"Next"} onClick={nextPage} />
                 </div>
               </div>
             </td>
@@ -67,25 +93,27 @@ export default function ListVehicle(props) {
             <Th colSpan="8">Address</Th>
             <Th>Action</Th>
           </Tr>
-          <Tr>
-            <td>
-              <QuickEditInput value="30A-12345" />
-            </td>
-            <td>
-              <QuickEditInput value="Computer" />
-            </td>
-            <td colSpan="8">
-              <QuickEditTextArea value="Excepteur consequat incididunt ipsum deserunt irure sint aliqua elit esse." />
-            </td>
-            <td>
-              <div>
-                <span>
-                  <Link to={`${path}/car/qwerty`}>Edit</Link>
-                </span>
-                <span>Delete</span>
-              </div>
-            </td>
-          </Tr>
+          {cars.map((car, index) => (
+            <Tr key={`car-${car.id}`}>
+              <td>
+                <QuickEditInput value={car.plate} />
+              </td>
+              <td>
+                <QuickEditInput value={car.name} />
+              </td>
+              <td colSpan="8">
+                <QuickEditTextArea value={car.address} />
+              </td>
+              <td>
+                <div>
+                  <span>
+                    <Link to={`${path}/car/${car.id}`}>Edit</Link>
+                  </span>
+                  <span>Delete</span>
+                </div>
+              </td>
+            </Tr>
+          ))}
         </tbody>
       </table>
     </ListVehicleWrapper>

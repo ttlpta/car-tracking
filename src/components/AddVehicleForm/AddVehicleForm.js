@@ -1,24 +1,20 @@
-import React, { useDispatch } from "reactn";
+import React from "react";
 import { useForm } from "react-hook-form";
 
+import useNotification from "../../hooks/useNotification";
 import InputTxt from "../InputTxt/InputTxt";
 import Button from "../Button/Button";
 import AddVehicleFormWrapper from "./AddVehicleFormWrapper";
 import * as CarService from "../../Services/CarService";
-import { notificationReducer } from "../../reducers";
 
 export default function AddVehicleForm(props) {
   const { register, handleSubmit, errors, reset } = useForm();
-  const showNotification = useDispatch(notificationReducer.show);
+  const { showSuccess } = useNotification()
 
   const onSubmit = async data => {
     const success = await CarService.addCar(data);
     if (success) {
-      showNotification({
-        type: "success",
-        show: true,
-        message: "Success"
-      });
+      showSuccess("success");
       reset();
     }
   };
