@@ -53,7 +53,7 @@ export default function ListVehicle(props) {
     try {
       const cars = await CarService.listCar(page + 1);
       setCars(cars);
-      setPage(page + 1);
+      setPage(oldPage => oldPage + 1);
     } catch (error) {
       showError(error);
     }
@@ -63,7 +63,7 @@ export default function ListVehicle(props) {
     try {
       const cars = await CarService.listCar(page - 1);
       setCars(cars);
-      setPage(page - 1);
+      setPage(oldPage => oldPage - 1);
     } catch (error) {
       showError(error);
     }
