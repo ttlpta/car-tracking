@@ -1,5 +1,10 @@
-import React, { Suspense, lazy, Fragment } from "react";
-import { Switch, BrowserRouter as Router, Route } from "react-router-dom";
+import React, { Suspense, lazy, Fragment, useGlobal } from "reactn";
+import {
+  Switch,
+  BrowserRouter as Router,
+  Route,
+  Redirect
+} from "react-router-dom";
 import { ThemeProvider } from "styled-components";
 
 import { Loading } from "./components";
@@ -10,6 +15,7 @@ import Normalize from "./Normalize";
 import NotificationPopup from "./components/NotificationPopup/NotificationPopup";
 import themeLight from "./themes/defaultTheme";
 
+const Login = lazy(() => import("./scenes/Login/Login"));
 const Search = lazy(() => import("./scenes/Search/Search"));
 const List = lazy(() => import("./scenes/List/List"));
 const Detail = lazy(() => import("./scenes/Detail/Detail"));
@@ -28,14 +34,18 @@ export default function App() {
           <Suspense fallback={Loading()}>
             <Page500>
               <Switch>
-                <Route exact path="/" name="Home page" component={Search} />
-                <Route path="/list" name="List Page" component={List} />
-                <Route
-                  exact
-                  path="/detail"
-                  name="Detail Page"
-                  component={Detail}
-                />
+                <Route exact path="/login">
+                  <Login />
+                </Route>
+                <PrivateRouter exact path="/">
+                  <Search />
+                </PrivateRouter>
+                <PrivateRouter path="/list">
+                  <List />
+                </PrivateRouter>
+                <PrivateRouter exact path="/detail/:carId">
+                  <Detail />
+                </PrivateRouter>
                 <Route name="Page 404" component={Page404} />
               </Switch>
             </Page500>
@@ -43,5 +53,27 @@ export default function App() {
         </Router>
       </ThemeProvider>
     </Fragment>
+  );
+}
+
+function PrivateRouter({ children, ...rest }) {
+  const [auth] = useGlobal("auth");
+
+  return (
+    <Route
+      {...rest}
+      render={({ location }) =>
+        auth.isLogined ? (
+          children
+        ) : (
+          <Redirect
+            to={{
+              pathname: "/login",
+              state: { from: location }
+            }}
+          />
+        )
+      }
+    />
   );
 }

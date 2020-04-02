@@ -9,7 +9,7 @@ import * as CarService from "../../Services/CarService";
 
 export default function AddVehicleForm(props) {
   const { register, handleSubmit, errors, reset } = useForm();
-  const { showSuccess } = useNotification()
+  const { showSuccess } = useNotification();
 
   const onSubmit = async data => {
     const success = await CarService.addCar(data);

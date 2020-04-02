@@ -1,5 +1,5 @@
 import axios from "../axios";
-import { ITEM_PER_PAGE }  from "../config";
+import { ITEM_PER_PAGE } from "../config";
 
 export const addCar = async body => {
   try {
@@ -14,7 +14,9 @@ export const addCar = async body => {
 
 export const listCar = async (page = 1) => {
   try {
-    const { data, status } = await axios.get(`/cars?_page=${page}&_limit=${ITEM_PER_PAGE}`);
+    const { data, status } = await axios.get(
+      `/cars?_page=${page}&_limit=${ITEM_PER_PAGE}`
+    );
     if (status !== 200) throw "Error";
 
     return data;

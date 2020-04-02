@@ -1,5 +1,4 @@
-import React, { useGlobal, useDispatch, addCallback } from "reactn";
-import PropTypes from "prop-types";
+import React, { useGlobal, useDispatch, addCallback, useEffect } from "reactn";
 
 import NotificationPopupWrapper from "./NotificationPopupWrapper";
 import { notificationReducer } from "../../reducers";
@@ -8,6 +7,9 @@ export default function NotificationPopup(props) {
   const [notification] = useGlobal("notification");
   const showNotification = useDispatch(notificationReducer.show);
 
+  useEffect(() => {
+    console.log("========================");
+  });
   addCallback(global => {
     if (global.notification.show) {
       setTimeout(() => {
